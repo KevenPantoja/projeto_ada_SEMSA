@@ -1,0 +1,88 @@
+.hidden {
+    display: none !important;
+  }
+
+  #spinner-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  #spinner-overlay > div {
+    display: flex;
+    flex-direction: column; /* Empilhar elementos verticalmente */
+    align-items: center; /* Centralizar horizontalmente */
+    gap: 10px; /* Espaçamento entre o texto e os spinners */
+  }
+
+
+  .spinner {
+    border: 8px solid rgba(255, 255, 255, 0.3);
+    border-top: 8px solid #ffffff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    margin-right: 1rem;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .spinners-grow {
+    display: flex;
+    flex-direction: row; /* Horizontal */
+    gap: 10px; /* Espaçamento entre esferas */
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .sphere {
+    border-radius: 50%;
+    background-color: #ffffff;
+    width: 15px;
+    height: 15px;
+    opacity: 0;
+    animation: grow-shrink 1.5s ease-in-out infinite;
+
+  }
+
+  .sphere-1 {
+    animation-delay: 0s;
+  }
+
+  .sphere-2 {
+    animation-delay: 0.5s;
+  }
+
+  .sphere-3 {
+    animation-delay: 1s;
+  }
+
+  @keyframes grow-shrink {
+    0% {
+      transform: scale(1);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.5);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0;
+    }
+  }

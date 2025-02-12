@@ -1,0 +1,619 @@
+-- novo_ada.ine_prt_homolog definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.ine_prt_homolog;
+
+CREATE TABLE novo_ada.ine_prt_homolog (
+
+);
+
+
+-- novo_ada.lfces004 definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.lfces004;
+
+CREATE TABLE novo_ada.lfces004 (
+
+);
+
+
+-- novo_ada.lfces004_unid definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.lfces004_unid;
+
+CREATE TABLE novo_ada.lfces004_unid (
+	und_cnes varchar(10) NULL,
+	und_nome varchar(150) NULL,
+	cod_dist int4 NULL
+);
+
+
+-- novo_ada.lfces021 definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.lfces021;
+
+CREATE TABLE novo_ada.lfces021 (
+
+);
+
+
+-- novo_ada.lfces037 definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.lfces037;
+
+CREATE TABLE novo_ada.lfces037 (
+
+);
+
+
+-- novo_ada.lfces037_tpequipe definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.lfces037_tpequipe;
+
+CREATE TABLE novo_ada.lfces037_tpequipe (
+	ine varchar(15) NULL,
+	tp_equipe varchar(10) NULL
+);
+
+
+-- novo_ada.lfces038 definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.lfces038;
+
+CREATE TABLE novo_ada.lfces038 (
+
+);
+
+
+-- novo_ada.lfces040 definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.lfces040;
+
+CREATE TABLE novo_ada.lfces040 (
+
+);
+
+
+-- novo_ada.lfces059 definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.lfces059;
+
+CREATE TABLE novo_ada.lfces059 (
+
+);
+
+
+-- novo_ada.nfces010 definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.nfces010;
+
+CREATE TABLE novo_ada.nfces010 (
+
+);
+
+
+-- novo_ada.nfces049 definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.nfces049;
+
+CREATE TABLE novo_ada.nfces049 (
+
+);
+
+
+-- novo_ada.nfces085 definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.nfces085;
+
+CREATE TABLE novo_ada.nfces085 (
+
+);
+
+
+-- novo_ada.prof_equipe_min definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.prof_equipe_min;
+
+CREATE TABLE novo_ada.prof_equipe_min (
+	cod_cbo int4 NULL,
+	descricao varchar(64) NULL,
+	tipo_equipe int4 NULL,
+	ch_amb int4 NULL,
+	st_apto int4 NULL
+);
+
+
+-- novo_ada.tb_alerta definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.tb_alerta;
+
+CREATE TABLE novo_ada.tb_alerta (
+	cod_alerta varchar(50) NULL,
+	desc_alerta varchar(100) NULL
+);
+
+
+-- novo_ada.tb_dim_cargahoraria definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.tb_dim_cargahoraria;
+
+CREATE TABLE novo_ada.tb_dim_cargahoraria (
+	co_seq_dim_cargahoraria int4 NOT NULL,
+	carg_quantidadehoras int4 NOT NULL,
+	CONSTRAINT tb_dim_cargahoraria_pkey PRIMARY KEY (co_seq_dim_cargahoraria)
+);
+
+
+-- novo_ada.tb_dim_cbo definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.tb_dim_cbo;
+
+CREATE TABLE novo_ada.tb_dim_cbo (
+	co_seq_dim_cbo int8 NOT NULL,
+	cbo_descricao varchar NOT NULL,
+	cbo_categ int4 NULL,
+	CONSTRAINT tb_dim_cbo_pkey PRIMARY KEY (co_seq_dim_cbo)
+);
+
+
+-- novo_ada.tb_dim_competencia definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.tb_dim_competencia;
+
+CREATE TABLE novo_ada.tb_dim_competencia (
+	co_seq_dim_competencia int8 GENERATED ALWAYS AS IDENTITY( INCREMENT BY 1 MINVALUE 1 MAXVALUE 9223372036854775807 START 1 CACHE 1 NO CYCLE) NOT NULL,
+	comp_competencia int4 NOT NULL,
+	comp_valido bool NOT NULL,
+	comp_data timestamp NULL,
+	CONSTRAINT tb_dim_competencia_pkey PRIMARY KEY (co_seq_dim_competencia)
+);
+
+
+-- novo_ada.tb_dim_conselho definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.tb_dim_conselho;
+
+CREATE TABLE novo_ada.tb_dim_conselho (
+	"CODORGEMIS" text NULL,
+	"DESCRICAO" text NULL
+);
+
+
+-- novo_ada.tb_dim_distrito definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.tb_dim_distrito;
+
+CREATE TABLE novo_ada.tb_dim_distrito (
+	co_seq_dim_distrito int8 NOT NULL,
+	dist_nome varchar NOT NULL,
+	CONSTRAINT tb_dim_distrito_pkey PRIMARY KEY (co_seq_dim_distrito)
+);
+
+
+-- novo_ada.tb_dim_equipe definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.tb_dim_equipe;
+
+CREATE TABLE novo_ada.tb_dim_equipe (
+	co_seq_dim_equipe int8 NOT NULL,
+	equi_ine varchar NOT NULL,
+	equi_nome varchar NOT NULL,
+	equi_area varchar NULL,
+	CONSTRAINT tb_dim_equipe_pkey PRIMARY KEY (co_seq_dim_equipe)
+);
+
+
+-- novo_ada.tb_dim_portarias definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.tb_dim_portarias;
+
+CREATE TABLE novo_ada.tb_dim_portarias (
+	co_seq_dim_portarias int8 NOT NULL,
+	portaria_nome varchar NOT NULL,
+	CONSTRAINT tb_dim_portarias_pkey PRIMARY KEY (co_seq_dim_portarias)
+);
+
+
+-- novo_ada.tb_dim_profissional definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.tb_dim_profissional;
+
+CREATE TABLE novo_ada.tb_dim_profissional (
+	co_seq_dim_profissional int8 NOT NULL,
+	prof_nome varchar NOT NULL,
+	prof_cpf varchar NOT NULL,
+	CONSTRAINT tb_dim_profissional_pkey PRIMARY KEY (co_seq_dim_profissional)
+);
+
+
+-- novo_ada.tb_dim_programas definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.tb_dim_programas;
+
+CREATE TABLE novo_ada.tb_dim_programas (
+	co_seq_dim_programas int8 NOT NULL,
+	progund_nome varchar NOT NULL,
+	progund_vig_inicio varchar NULL,
+	progund_vig_fim varchar NULL,
+	CONSTRAINT tb_dim_programas_pkey PRIMARY KEY (co_seq_dim_programas)
+);
+
+
+-- novo_ada.tb_dim_tipoequipe definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.tb_dim_tipoequipe;
+
+CREATE TABLE novo_ada.tb_dim_tipoequipe (
+	co_seq_dim_tipo_equipe int8 NOT NULL,
+	tpeq_descricao varchar NOT NULL,
+	CONSTRAINT tb_dim_tipoequipe_pkey PRIMARY KEY (co_seq_dim_tipo_equipe)
+);
+
+
+-- novo_ada.tb_dim_vinc_empreg definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.tb_dim_vinc_empreg;
+
+CREATE TABLE novo_ada.tb_dim_vinc_empreg (
+	"CD_VINCULACAO" text NULL,
+	"TP_VINCULO" text NULL,
+	"DS_VINCULO" text NULL,
+	"ST_HABILITADO" text NULL
+);
+
+
+-- novo_ada.tb_dim_vinc_estab definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.tb_dim_vinc_estab;
+
+CREATE TABLE novo_ada.tb_dim_vinc_estab (
+	"CD_VINCULACAO" text NULL,
+	"DS_VINCULACAO" text NULL,
+	"ST_HABILITADO" text NULL
+);
+
+
+-- novo_ada.tb_dim_vinculo definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.tb_dim_vinculo;
+
+CREATE TABLE novo_ada.tb_dim_vinculo (
+	co_seq_fat_dim_vinculo int4 NOT NULL,
+	vinc_descricao varchar NOT NULL,
+	CONSTRAINT tb_dim_vinculo_pkey PRIMARY KEY (co_seq_fat_dim_vinculo)
+);
+
+
+-- novo_ada.tb_fat_cns definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.tb_fat_cns;
+
+CREATE TABLE novo_ada.tb_fat_cns (
+	co_seq_cns int8 GENERATED ALWAYS AS IDENTITY( INCREMENT BY 1 MINVALUE 1 MAXVALUE 9223372036854775807 START 1 CACHE 1 NO CYCLE) NOT NULL,
+	co_seq_dim_profissional int8 NOT NULL,
+	dim_ncns varchar NOT NULL,
+	co_seq_dim_competencia int8 NOT NULL,
+	CONSTRAINT tb_fat_cns_pkey PRIMARY KEY (co_seq_cns)
+);
+
+
+-- novo_ada.tb_prof_status definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.tb_prof_status;
+
+CREATE TABLE novo_ada.tb_prof_status (
+	co_seq_dim_competencia int8 NULL,
+	und_cnes varchar NULL,
+	co_seq_dim_equipe int8 NULL,
+	equi_ine varchar NULL,
+	equi_nome varchar NULL,
+	c_med20 int8 NULL,
+	c_med40 int8 NULL,
+	c_enf20 int8 NULL,
+	c_enf30 int8 NULL,
+	c_enf40 int8 NULL,
+	c_dent20 int8 NULL,
+	c_dent30 int8 NULL,
+	c_dent40 int8 NULL,
+	c_bucal20 int8 NULL,
+	c_bucal30 int8 NULL,
+	c_bucal40 int8 NULL,
+	c_tenf int8 NULL,
+	c_acs int8 NULL
+);
+
+
+-- novo_ada.tb_vinc_empreg definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.tb_vinc_empreg;
+
+CREATE TABLE novo_ada.tb_vinc_empreg (
+
+);
+
+
+-- novo_ada.tbcenarioequipes definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.tbcenarioequipes;
+
+CREATE TABLE novo_ada.tbcenarioequipes (
+	und_nome varchar NULL,
+	equi_nome varchar NULL,
+	prt_homol text NULL,
+	tp_homol text NULL,
+	prt_informatiza text NULL,
+	prt_snh text NULL,
+	unid_equi_data_ativ varchar NULL,
+	unid_equi_data_desat varchar NULL,
+	equi_vinc text NULL,
+	desc_alerta text NULL,
+	st_alerta text NULL
+);
+
+
+-- novo_ada.vinc_empreg definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.vinc_empreg;
+
+CREATE TABLE novo_ada.vinc_empreg (
+
+);
+
+
+-- novo_ada.tb_dim_cns definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.tb_dim_cns;
+
+CREATE TABLE novo_ada.tb_dim_cns (
+	co_seq_cns int8 NOT NULL,
+	co_seq_dim_profissional int8 NOT NULL,
+	CONSTRAINT tb_dim_cns_pkey PRIMARY KEY (co_seq_cns),
+	CONSTRAINT fk_tb_dim_profissional_to_tb_dim_cns FOREIGN KEY (co_seq_dim_profissional) REFERENCES novo_ada.tb_dim_profissional(co_seq_dim_profissional)
+);
+
+
+-- novo_ada.tb_dim_unidade definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.tb_dim_unidade;
+
+CREATE TABLE novo_ada.tb_dim_unidade (
+	co_seq_dim_unidade int8 NOT NULL,
+	und_cnes varchar NOT NULL,
+	und_nome varchar NOT NULL,
+	co_seq_dim_distrito int8 NOT NULL,
+	co_natureza_jur varchar NULL,
+	und_cnpj varchar NULL,
+	und_latitude varchar NULL,
+	und_longitude varchar NULL,
+	CONSTRAINT tb_dim_unidade_pkey PRIMARY KEY (co_seq_dim_unidade),
+	CONSTRAINT fk_tb_dim_distrito_to_tb_dim_unidade FOREIGN KEY (co_seq_dim_distrito) REFERENCES novo_ada.tb_dim_distrito(co_seq_dim_distrito)
+);
+
+
+-- novo_ada.tb_fat_equipe_equipe definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.tb_fat_equipe_equipe;
+
+CREATE TABLE novo_ada.tb_fat_equipe_equipe (
+	co_seq_fat_equipe_equipe int8 GENERATED ALWAYS AS IDENTITY( INCREMENT BY 1 MINVALUE 1 MAXVALUE 9223372036854775807 START 1 CACHE 1 NO CYCLE) NOT NULL,
+	co_seq_dim_equipe int8 NOT NULL,
+	co_seq_dim_equipe_esb int8 NOT NULL,
+	co_seq_dim_competencia int8 NOT NULL,
+	CONSTRAINT tb_fat_equipe_equipe_pkey PRIMARY KEY (co_seq_fat_equipe_equipe),
+	CONSTRAINT fk_tb_dim_competencia_to_tb_fat_equipe_equipe FOREIGN KEY (co_seq_dim_competencia) REFERENCES novo_ada.tb_dim_competencia(co_seq_dim_competencia),
+	CONSTRAINT fk_tb_dim_equipe_to_tb_fat_equipe_equipe FOREIGN KEY (co_seq_dim_equipe) REFERENCES novo_ada.tb_dim_equipe(co_seq_dim_equipe),
+	CONSTRAINT fk_tb_dim_equipe_to_tb_fat_equipe_equipe1 FOREIGN KEY (co_seq_dim_equipe_esb) REFERENCES novo_ada.tb_dim_equipe(co_seq_dim_equipe)
+);
+
+
+-- novo_ada.tb_fat_equipe_tipoequipe definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.tb_fat_equipe_tipoequipe;
+
+CREATE TABLE novo_ada.tb_fat_equipe_tipoequipe (
+	co_seq_fat_equipe_tipoequipe int8 GENERATED ALWAYS AS IDENTITY( INCREMENT BY 1 MINVALUE 1 MAXVALUE 9223372036854775807 START 1 CACHE 1 NO CYCLE) NOT NULL,
+	co_seq_dim_equipe int8 NOT NULL,
+	co_seq_dim_tipo_equipe int8 NOT NULL,
+	co_seq_dim_competencia int8 NOT NULL,
+	CONSTRAINT tb_fat_equipe_tipoequipe_pkey PRIMARY KEY (co_seq_fat_equipe_tipoequipe),
+	CONSTRAINT fk_tb_dim_competencia_to_tb_fat_equipe_tipoequipe FOREIGN KEY (co_seq_dim_competencia) REFERENCES novo_ada.tb_dim_competencia(co_seq_dim_competencia),
+	CONSTRAINT fk_tb_dim_equipe_to_tb_fat_equipe_tipoequipe FOREIGN KEY (co_seq_dim_equipe) REFERENCES novo_ada.tb_dim_equipe(co_seq_dim_equipe),
+	CONSTRAINT fk_tb_dim_tipoequipe_to_tb_fat_equipe_tipoequipe FOREIGN KEY (co_seq_dim_tipo_equipe) REFERENCES novo_ada.tb_dim_tipoequipe(co_seq_dim_tipo_equipe)
+);
+
+
+-- novo_ada.tb_fat_portaria_equipe definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.tb_fat_portaria_equipe;
+
+CREATE TABLE novo_ada.tb_fat_portaria_equipe (
+	co_seq_fat_portaria_equipe int8 GENERATED ALWAYS AS IDENTITY( INCREMENT BY 1 MINVALUE 1 MAXVALUE 9223372036854775807 START 1 CACHE 1 NO CYCLE) NOT NULL,
+	co_seq_dim_portarias int8 NOT NULL,
+	co_seq_dim_equipe int8 NOT NULL,
+	co_seq_dim_competencia int8 NOT NULL,
+	tb_fat_portaria_desc varchar NOT NULL,
+	port_desc_tipo_homolog varchar NULL,
+	CONSTRAINT tb_fat_portaria_equipe_pkey PRIMARY KEY (co_seq_fat_portaria_equipe),
+	CONSTRAINT fk_tb_dim_competencia_to_tb_fat_portaria_equipe FOREIGN KEY (co_seq_dim_competencia) REFERENCES novo_ada.tb_dim_competencia(co_seq_dim_competencia),
+	CONSTRAINT fk_tb_dim_equipe_to_tb_fat_portaria_equipe FOREIGN KEY (co_seq_dim_equipe) REFERENCES novo_ada.tb_dim_equipe(co_seq_dim_equipe),
+	CONSTRAINT fk_tb_dim_portarias_to_tb_fat_portaria_equipe FOREIGN KEY (co_seq_dim_portarias) REFERENCES novo_ada.tb_dim_portarias(co_seq_dim_portarias)
+);
+
+
+-- novo_ada.tb_fat_profissional_cbo definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.tb_fat_profissional_cbo;
+
+CREATE TABLE novo_ada.tb_fat_profissional_cbo (
+	co_seq_fat_profissional_cbo int8 GENERATED ALWAYS AS IDENTITY( INCREMENT BY 1 MINVALUE 1 MAXVALUE 9223372036854775807 START 1 CACHE 1 NO CYCLE) NOT NULL,
+	co_seq_dim_profissional int8 NOT NULL,
+	co_seq_dim_cbo int8 NOT NULL,
+	prof_numregistro varchar NOT NULL,
+	co_seq_fat_dim_vinculo int4 NOT NULL,
+	co_seq_dim_cargahoraria int4 NOT NULL,
+	co_seq_dim_competencia int8 NOT NULL,
+	unidade_id int8 NULL,
+	nu_cnpj_det_vinc varchar NULL,
+	cod_vinc varchar NULL,
+	tp_vinc varchar NULL,
+	cghorahosp int8 NULL,
+	cghoraoutr int8 NULL,
+	conselhoid varchar NULL,
+	CONSTRAINT tb_fat_profissional_cbo_pkey PRIMARY KEY (co_seq_fat_profissional_cbo),
+	CONSTRAINT fk_tb_dim_cargahoraria_to_tb_fat_profissional_cbo FOREIGN KEY (co_seq_dim_cargahoraria) REFERENCES novo_ada.tb_dim_cargahoraria(co_seq_dim_cargahoraria),
+	CONSTRAINT fk_tb_dim_cbo_to_tb_fat_profissional_cbo FOREIGN KEY (co_seq_dim_cbo) REFERENCES novo_ada.tb_dim_cbo(co_seq_dim_cbo),
+	CONSTRAINT fk_tb_dim_competencia_to_tb_fat_profissional_cbo FOREIGN KEY (co_seq_dim_competencia) REFERENCES novo_ada.tb_dim_competencia(co_seq_dim_competencia),
+	CONSTRAINT fk_tb_dim_profissional_to_tb_fat_profissional_cbo FOREIGN KEY (co_seq_dim_profissional) REFERENCES novo_ada.tb_dim_profissional(co_seq_dim_profissional),
+	CONSTRAINT fk_tb_dim_vinculo_to_tb_fat_profissional_cbo FOREIGN KEY (co_seq_fat_dim_vinculo) REFERENCES novo_ada.tb_dim_vinculo(co_seq_fat_dim_vinculo)
+);
+
+
+-- novo_ada.tb_fat_unidade_equipe definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.tb_fat_unidade_equipe;
+
+CREATE TABLE novo_ada.tb_fat_unidade_equipe (
+	co_seq_fat_unidade_equipe int8 GENERATED ALWAYS AS IDENTITY( INCREMENT BY 1 MINVALUE 1 MAXVALUE 9223372036854775807 START 1 CACHE 1 NO CYCLE) NOT NULL,
+	co_seq_dim_unidade int8 NOT NULL,
+	co_seq_dim_equipe int8 NOT NULL,
+	unid_equi_data_ativ varchar NOT NULL,
+	unid_equi_data_desat varchar NULL,
+	co_seq_dim_competencia int8 NOT NULL,
+	CONSTRAINT tb_fat_unidade_equipe_pkey PRIMARY KEY (co_seq_fat_unidade_equipe),
+	CONSTRAINT fk_tb_dim_competencia_to_tb_fat_unidade_equipe FOREIGN KEY (co_seq_dim_competencia) REFERENCES novo_ada.tb_dim_competencia(co_seq_dim_competencia),
+	CONSTRAINT fk_tb_dim_equipe_to_tb_fat_unidade_equipe FOREIGN KEY (co_seq_dim_equipe) REFERENCES novo_ada.tb_dim_equipe(co_seq_dim_equipe),
+	CONSTRAINT fk_tb_dim_unidade_to_tb_fat_unidade_equipe FOREIGN KEY (co_seq_dim_unidade) REFERENCES novo_ada.tb_dim_unidade(co_seq_dim_unidade)
+);
+
+
+-- novo_ada.tb_fat_unidade_equipe_profissional definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.tb_fat_unidade_equipe_profissional;
+
+CREATE TABLE novo_ada.tb_fat_unidade_equipe_profissional (
+	co_seq_tb_fat_equipe_profissional int8 GENERATED ALWAYS AS IDENTITY( INCREMENT BY 1 MINVALUE 1 MAXVALUE 9223372036854775807 START 1 CACHE 1 NO CYCLE) NOT NULL,
+	co_seq_fat_profissional_cbo int8 NOT NULL,
+	co_seq_fat_unidade_equipe int8 NOT NULL,
+	co_seq_dim_competencia int8 NOT NULL,
+	und_eqp_prf_entrada varchar NULL,
+	und_eqp_prf_saida varchar NULL,
+	CONSTRAINT tb_fat_unidade_equipe_profissional_pkey PRIMARY KEY (co_seq_tb_fat_equipe_profissional),
+	CONSTRAINT fk_tb_dim_competencia_to_tb_fat_unidade_equipe_profissional FOREIGN KEY (co_seq_dim_competencia) REFERENCES novo_ada.tb_dim_competencia(co_seq_dim_competencia),
+	CONSTRAINT fk_tb_fat_profissional_cbo_to_tb_fat_unidade_equipe_profissiona FOREIGN KEY (co_seq_fat_profissional_cbo) REFERENCES novo_ada.tb_fat_profissional_cbo(co_seq_fat_profissional_cbo),
+	CONSTRAINT fk_tb_fat_unidade_equipe_to_tb_fat_unidade_equipe_profissional FOREIGN KEY (co_seq_fat_unidade_equipe) REFERENCES novo_ada.tb_fat_unidade_equipe(co_seq_fat_unidade_equipe)
+);
+
+
+-- novo_ada.tb_fat_unidade_programas definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.tb_fat_unidade_programas;
+
+CREATE TABLE novo_ada.tb_fat_unidade_programas (
+	co_seq_tb_fat_unidade_programas int8 GENERATED ALWAYS AS IDENTITY( INCREMENT BY 1 MINVALUE 1 MAXVALUE 9223372036854775807 START 1 CACHE 1 NO CYCLE) NOT NULL,
+	co_seq_dim_unidade int8 NOT NULL,
+	co_seq_dim_programas int8 NOT NULL,
+	co_seq_dim_competencia int8 NOT NULL,
+	CONSTRAINT tb_fat_unidade_programas_pkey PRIMARY KEY (co_seq_tb_fat_unidade_programas),
+	CONSTRAINT fk_tb_dim_competencia_to_tb_fat_unidade_programas FOREIGN KEY (co_seq_dim_competencia) REFERENCES novo_ada.tb_dim_competencia(co_seq_dim_competencia),
+	CONSTRAINT fk_tb_dim_programas_to_tb_fat_unidade_programas FOREIGN KEY (co_seq_dim_programas) REFERENCES novo_ada.tb_dim_programas(co_seq_dim_programas),
+	CONSTRAINT fk_tb_dim_unidade_to_tb_fat_unidade_programas FOREIGN KEY (co_seq_dim_unidade) REFERENCES novo_ada.tb_dim_unidade(co_seq_dim_unidade)
+);
+
+
+-- novo_ada.tb_fat_unidade_situacao definition
+
+-- Drop table
+
+-- DROP TABLE novo_ada.tb_fat_unidade_situacao;
+
+CREATE TABLE novo_ada.tb_fat_unidade_situacao (
+	co_seq_tb_fat_unidade_situacao int8 GENERATED ALWAYS AS IDENTITY( INCREMENT BY 1 MINVALUE 1 MAXVALUE 9223372036854775807 START 1 CACHE 1 NO CYCLE) NOT NULL,
+	co_seq_dim_unidade int8 NOT NULL,
+	co_seq_dim_competencia int8 NOT NULL,
+	ds_motivo_desab varchar NULL,
+	tipo_unidade varchar NOT NULL,
+	CONSTRAINT tb_fat_unidade_situacao_pkey PRIMARY KEY (co_seq_tb_fat_unidade_situacao),
+	CONSTRAINT fk_tb_dim_competencia_to_tb_fat_unidade_situacao FOREIGN KEY (co_seq_dim_competencia) REFERENCES novo_ada.tb_dim_competencia(co_seq_dim_competencia),
+	CONSTRAINT fk_tb_dim_unidade_to_tb_fat_unidade_situacao FOREIGN KEY (co_seq_dim_unidade) REFERENCES novo_ada.tb_dim_unidade(co_seq_dim_unidade)
+);
